@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import BookDataProvider from './providers/bookData/bookDataProvider'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './components/Pages/Home'
+import AddBook from './components/Pages/AddBook'
+import NotFound from './components/Pages/NotFound'
 
-function App() {
+import 'materialize-css/dist/css/materialize.min.css'
+import 'material-icons/css/material-icons.min.css'
+import M from 'materialize-css/dist/js/materialize.min.js'
+import './App.css'
+
+const App = () => {
+  useEffect(() => {
+    // Init Materialize JS
+    M.AutoInit()
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BookDataProvider>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/add" component={AddBook} />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+      </Router>
+    </BookDataProvider>
+  )
 }
 
-export default App;
+export default App

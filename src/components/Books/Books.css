@@ -1,0 +1,12 @@
+.headings {
+  display: flex;
+  align-items: center;
+}
+
+th > p {
+  margin: 0;
+}
+
+th > span {
+  cursor: pointer;
+}

@@ -1,0 +1,54 @@
+{
+  "books": [
+    {
+      "id": "abcdef",
+      "title": "Ancient Rome",
+      "author": "John Doe",
+      "pages": 328,
+      "published": 2012,
+      "quantity": 20,
+      "cover": "img.jpg"
+    },
+    {
+      "id": "bcdefg",
+      "title": "History of Belgrade",
+      "author": "Nick Brewer",
+      "pages": 165,
+      "published": 2012,
+      "quantity": 20,
+      "cover": "img.jpg"
+    },
+    {
+      "id": "cdefgh",
+      "title": "Great old book",
+      "author": "Ann Peterson",
+      "pages": 272,
+      "published": 2012,
+      "quantity": 20,
+      "cover": "img.jpg"
+    },
+    {
+      "title": "Hello Hello",
+      "author": "Nikola Begovic",
+      "pages": 0,
+      "published": "1936",
+      "quantity": "55",
+      "cover": "img",
+      "id": "2YQGg6g"
+    }
+  ],
+  "authors": [
+    {
+      "id": "21312312",
+      "name": "John Doe"
+    },
+    {
+      "id": "2002312",
+      "name": "Nick Brewer"
+    },
+    {
+      "id": "21399312",
+      "name": "Ann Peterson"
+    }
+  ]
+}

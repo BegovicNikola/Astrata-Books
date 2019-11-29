@@ -1,0 +1,6 @@
+export const FETCH_BOOKS = 'FETCH_BOOKS'
+export const SORT_BOOKS = 'SORT_BOOKS'
+export const FILTER_BOOKS = 'FILTER_BOOKS'
+export const ADD_BOOKS = 'ADD_BOOKS'
+export const IS_LOADING = 'IS_LOADING'
+export const SWITCH_PAGE = 'SWITCH_PAGE'
