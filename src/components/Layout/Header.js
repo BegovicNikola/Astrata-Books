@@ -11,28 +11,30 @@ const Header = () => {
 
   return (
     <nav className="blue" style={{ height: 'auto' }}>
-      <div className="container row" style={{ display: 'flex' }}>
-        <h1
-          className="col s6"
-          style={{ margin: 0, paddingTop: 40, textTransform: 'capitalize' }}
-        >
+      <div
+        className="container"
+        style={{ display: 'flex', justifyContent: 'space-between' }}
+      >
+        <h1 style={{ margin: 0, paddingTop: 40, textTransform: 'capitalize' }}>
           {`${curr} `}Books
         </h1>
-        <div className="input-field text-white col s6">
-          <select
-            className="browser-default right"
-            onChange={e => filterBooks(e.target.value)}
-          >
-            <option value={null}></option>
+        {curr === '' ? (
+          <div className="input-field text-white" style={{ paddingTop: 40 }}>
+            <select
+              className="browser-default right"
+              onChange={e => filterBooks(e.target.value)}
+            >
+              <option value={null}></option>
 
-            {authors &&
-              authors.map(author => (
-                <option key={author.id} value={author.name}>
-                  {author.name}
-                </option>
-              ))}
-          </select>
-        </div>
+              {authors &&
+                authors.map(author => (
+                  <option key={author.id} value={author.name}>
+                    {author.name}
+                  </option>
+                ))}
+            </select>
+          </div>
+        ) : null}
       </div>
     </nav>
   )
