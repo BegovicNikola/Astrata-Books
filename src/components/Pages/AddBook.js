@@ -32,36 +32,54 @@ const AddBook = () => {
       </Link>
       <div className="container" style={{ marginTop: 40 }}>
         <form onSubmit={() => addBooks(book)}>
-          <input
-            className="w-100"
-            placeholder="Title of the book"
-            value={book.title}
-            onChange={e => setBook({ ...book, title: e.target.value })}
-          />
-          <input
-            className="w-100"
-            placeholder="Name of the author"
-            value={book.author}
-            onChange={e => setBook({ ...book, author: e.target.value })}
-          />
-          <input
-            type="number"
-            min={1900}
-            value={book.published}
-            onChange={e => setBook({ ...book, published: e.target.value })}
-          />
-          <input
-            type="number"
-            min={0}
-            value={book.pages}
-            onChange={e => setBook({ ...book, pages: e.target.value })}
-          />
-          <input
-            type="number"
-            min={0}
-            value={book.quantity}
-            onChange={e => setBook({ ...book, quantity: e.target.value })}
-          />
+          <div className="input-field">
+            <label for="title">Title</label>
+            <br />
+            <input
+              id="title"
+              className="w-100"
+              placeholder="Title of the book"
+              value={book.title}
+              onChange={e => setBook({ ...book, title: e.target.value })}
+            />
+          </div>
+          <div className="input-field">
+            <label>Author</label>
+            <br />
+            <input
+              className="w-100"
+              placeholder="Name of the author"
+              value={book.author}
+              onChange={e => setBook({ ...book, author: e.target.value })}
+            />
+          </div>
+          <div className="input-field">
+            <label>Year of publishing</label>
+            <input
+              type="number"
+              min={1900}
+              value={book.published}
+              onChange={e => setBook({ ...book, published: e.target.value })}
+            />
+          </div>
+          <div className="input-field">
+            <label>Number of pages</label>
+            <input
+              type="number"
+              min={0}
+              value={book.pages}
+              onChange={e => setBook({ ...book, pages: e.target.value })}
+            />
+          </div>
+          <div className="input-field">
+            <label>Quantity</label>
+            <input
+              type="number"
+              min={0}
+              value={book.quantity}
+              onChange={e => setBook({ ...book, quantity: e.target.value })}
+            />
+          </div>
           <button className="btn waves-effect waves-light" type="submit">
             Submit
           </button>
