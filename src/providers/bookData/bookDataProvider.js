@@ -7,7 +7,8 @@ import {
   IS_LOADING,
   FILTER_BOOKS,
   ADD_BOOKS,
-  SORT_BOOKS
+  SORT_BOOKS,
+  FETCH_AUTHORS
 } from '../actionTypes'
 
 const BookDataProvider = props => {
@@ -15,13 +16,15 @@ const BookDataProvider = props => {
     books: [],
     sortTitle: null,
     sortPages: null,
-    filter: null,
+    authors: [],
+    filter: '',
     isLoading: false
   }
 
   const [state, dispatch] = useReducer(BookDataReducer, initialState)
 
   useEffect(() => {
+    fetchAuthors()
     fetchBooks()
     return () => {}
     // eslint-disable-next-line
@@ -29,7 +32,7 @@ const BookDataProvider = props => {
 
   console.log(state)
 
-  const fetchBooks = async (sort = null, filter = null) => {
+  const fetchBooks = async () => {
     initLoading()
 
     const res = await axios.get(`/books`)
@@ -37,12 +40,29 @@ const BookDataProvider = props => {
     dispatch({
       type: FETCH_BOOKS,
       payload: {
-        books: res.data,
-        sortTitle: sort,
-        sortPages: sort,
-        filter: filter
+        books: res.data
       }
     })
+  }
+
+  const fetchAuthors = async () => {
+    initLoading()
+
+    const res = await axios.get(`/authors`)
+
+    dispatch({
+      type: FETCH_AUTHORS,
+      payload: {
+        authors: res.data
+      }
+    })
+  }
+
+  const compare = (a, b) => {
+    if (a > b) return 1
+    if (b > a) return -1
+
+    return 0
   }
 
   const sortBooksByTitle = sort => {
@@ -52,8 +72,10 @@ const BookDataProvider = props => {
         ...state,
         sortTitle: sort,
         sortPages: 'desc',
-        // Yet to find an optimal solution
-        books: state.books.sort((a, b) => a.title[0] - b.title[0])
+        books:
+          sort === 'asc'
+            ? state.books.sort((a, b) => compare(a.title, b.title))
+            : state.books.sort((a, b) => compare(b.title, a.title))
       }
     })
   }
@@ -77,13 +99,15 @@ const BookDataProvider = props => {
     dispatch({
       type: FILTER_BOOKS,
       payload: {
-        filter: filter
+        filter
       }
     })
   }
 
-  const addBooks = book => {
-    const res = axios.post('/books', book)
+  const addBooks = async book => {
+    initLoading()
+
+    const res = await axios.post('/books', book)
 
     dispatch({
       type: ADD_BOOKS,
@@ -102,6 +126,7 @@ const BookDataProvider = props => {
         sortTitle: state.sortTitle,
         sortPages: state.sortPages,
         filter: state.filter,
+        authors: state.authors,
         isLoading: state.isLoading,
         fetchBooks,
         sortBooksByTitle,

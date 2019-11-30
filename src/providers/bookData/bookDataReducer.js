@@ -3,6 +3,7 @@ import {
   SORT_BOOKS,
   FILTER_BOOKS,
   ADD_BOOKS,
+  FETCH_AUTHORS,
   IS_LOADING
 } from '../actionTypes'
 
@@ -12,9 +13,6 @@ export default (state, action) => {
       return {
         ...state,
         books: action.payload.books,
-        sortTitle: action.payload.sortTitle,
-        sortPages: action.payload.sortPages,
-        filter: action.payload.filter,
         isLoading: false
       }
     case SORT_BOOKS:
@@ -31,7 +29,13 @@ export default (state, action) => {
     case ADD_BOOKS:
       return {
         ...state,
-        books: [action.payload, ...state.books]
+        books: action.payload.books
+      }
+    case FETCH_AUTHORS:
+      return {
+        ...state,
+        authors: action.payload.authors,
+        isLoading: false
       }
     case IS_LOADING:
       return { ...state, isLoading: true }

@@ -8,11 +8,11 @@ const Books = () => {
 
   const {
     books,
+    filter,
     sortTitle,
     sortPages,
     sortBooksByTitle,
-    sortBooksByPages,
-    filterBooks
+    sortBooksByPages
   } = bookDataContext
   return (
     <div>
@@ -22,7 +22,7 @@ const Books = () => {
             <th></th>
             <th className="headings">
               <p>Title</p>
-              {/* {sortTitle === 'asc' ? (
+              {sortTitle === 'asc' ? (
                 <span onClick={() => sortBooksByTitle('desc')}>
                   <i className="material-icons right">arrow_downward</i>
                 </span>
@@ -30,7 +30,7 @@ const Books = () => {
                 <span onClick={() => sortBooksByTitle('asc')}>
                   <i className="material-icons right">arrow_upward</i>
                 </span>
-              )} */}
+              )}
             </th>
             <th>Author</th>
             <th>Year</th>
@@ -51,17 +51,20 @@ const Books = () => {
         </thead>
         {books ? (
           <tbody>
-            {books.map(book => (
-              <tr key={book.id} className="collection-item">
-                <td>img</td>
-                {/* Property is called "cover" */}
-                <td>{book.title}</td>
-                <td>{book.author}</td>
-                <td>{book.published}</td>
-                <td>{book.pages}</td>
-                <td>{book.quantity}</td>
-              </tr>
-            ))}
+            {books &&
+              books.map(book =>
+                book.author === filter || filter === '' ? (
+                  <tr key={book.id} className="collection-item">
+                    <td>img</td>
+                    {/* Property is called "cover" */}
+                    <td>{book.title}</td>
+                    <td>{book.author}</td>
+                    <td>{book.published}</td>
+                    <td>{book.pages}</td>
+                    <td>{book.quantity}</td>
+                  </tr>
+                ) : null
+              )}
           </tbody>
         ) : (
           <tbody>

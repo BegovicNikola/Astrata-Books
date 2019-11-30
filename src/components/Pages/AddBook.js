@@ -62,7 +62,9 @@ const AddBook = () => {
             value={book.quantity}
             onChange={e => setBook({ ...book, quantity: e.target.value })}
           />
-          <button type="submit">Submit</button>
+          <button className="btn waves-effect waves-light" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>
