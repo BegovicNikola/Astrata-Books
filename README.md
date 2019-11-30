@@ -19,3 +19,8 @@ You will be able to write to db.json file for data persistence.
 
 #### Go to branch `5th-Hour to get the last version` 
 #### Before running the scripts: `git checkout 5th-Hour`
+
+<hr />
+
+#### Go to branch `6th-Hour to get the last version` 
+#### Before running the scripts: `git checkout 6th-Hour`
