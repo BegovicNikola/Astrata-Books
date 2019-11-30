@@ -7,7 +7,7 @@ Getting the project:
 
 ## Run Scripts
 
-### 1.`yarn run dev`
+### 1.`yarn`
 
 ### 2.`yarn run dev`
 
