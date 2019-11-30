@@ -7,5 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 It will concurrently run a json-server & react-app.
 You will be able to write to db.json file for data persistence.
 
-`Initial commit + README.md edit were at 4 hours sharp.`
+`Initial commit + README.md edit were at 4 hours sharp.` <br />
 `I will continue with branches for every hour going forward, so you can see the progress.`
+
+#### Pull from branch `5th-Hour to get the last version`
