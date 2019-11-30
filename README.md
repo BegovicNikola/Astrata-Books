@@ -17,4 +17,5 @@ You will be able to write to db.json file for data persistence.
 `Initial commit + README.md edit were at 4 hours sharp.` <br />
 `I will continue with branches for every hour going forward, so you can see the progress.`
 
-#### Pull from branch `5th-Hour to get the last version`
+#### Go to branch `5th-Hour to get the last version` 
+#### Before running the scripts: `git checkout 5th-Hour`
