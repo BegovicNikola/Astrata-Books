@@ -1,8 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Getting the project: 
+1. Open Terminal
+2. `git clone https://github.com/BegovicNikola/Astrata-Books.git`
+3. Run scripts in order
 
-### `yarn run dev`
+## Run Scripts
+
+### 1.`yarn run dev`
+
+### 2.`yarn run dev`
 
 It will concurrently run a json-server & react-app.
 You will be able to write to db.json file for data persistence.
